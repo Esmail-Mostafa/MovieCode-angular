@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 card bg-white m-auto mt-4" >
+      <div class="text-center">
+        <img
+          class="w-50 mt-4"
+          src="https://test-api.storexweb.com/{{ show.image }}"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <div>
+
+        <label class="form-label fw-bold" for="">name</label>
+        <input disabled class="form-control my-1" type="text" value="{{ show.name }}" />
+
+
+        <label class="form-label fw-bold" for="">description</label>
+        <input
+        
+          class="form-control my-1"disabled
+          type="text"
+          value="{{ show.description }}"
+        />
+        <label for="" class="form-label fw-bold">category</label>
+        <input type="text" disabled value="{{show.category.name}}" class="form-control my-1 mb-2"/>
+      </div>
+    </div>
+  </div>
+</div>

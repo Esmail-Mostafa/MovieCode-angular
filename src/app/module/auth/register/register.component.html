@@ -1,0 +1,163 @@
+<section class="vh-100" style="background-color: #eee">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px">
+          <div class="card-body p-md-4">
+            <div class="row justify-content-center">
+              <p class="text-center h2 fw-bold">Register</p>
+
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <div class="fs-2 text-center my-3">
+                  <i style="color: #3b5998" class="bi bi-facebook me-5"></i>
+                  <i style="color: #ccd0d2" class="bi bi-apple me-5"></i>
+                  <a href=""
+                    ><img
+                      src="assets/Logisty ui images/google-svgrepo-com-2.png"
+                      alt=""
+                      srcset=""
+                  /></a>
+                </div>
+                <div class="alert alert-danger" *ngFor="let error of errors">
+                  {{ error }}
+                </div>
+
+                <form
+                  #f="ngForm"
+                  class="mx-1 mx-md-4"
+                  [formGroup]="regsiterForm"
+                  (ngSubmit)="registerData(regsiterForm)"
+                >
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label">Name</label>
+                      <input
+                        formControlName="name"
+                        type="text"
+                        class="form-control"
+                      />
+                      <div
+                        *ngIf="
+                          regsiterForm.get('name')?.errors != null &&
+                          regsiterForm.get('name')?.touched
+                        "
+                        class="alert-danger my-2 mx-3"
+                      >
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('name')?.errors?.['required']"
+                        >
+                          Full Name is required
+                        </p>
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('name')?.errors?.['minLength']"
+                        >
+                          The least number of letters is 2
+                        </p>
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('name')?.errors?.['maxLength']"
+                        >
+                          The max number of letters is 150
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label">email </label>
+                      <input
+                        formControlName="email"
+                        type="email"
+                        class="form-control"
+                      />
+                      <div
+                        *ngIf="
+                          regsiterForm.get('email')?.errors != null &&
+                          regsiterForm.get('email')?.touched
+                        "
+                        class="alert-danger my-2 mx-3"
+                      >
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('email')?.errors?.['required']"
+                        >
+                          email is required
+                        </p>
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('email')?.errors?.['email']"
+                        >
+                          email is invalid
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label">password</label>
+                      <input
+                        formControlName="password"
+                        type="password"
+                        class="form-control"
+                      />
+                      <div
+                        *ngIf="
+                          regsiterForm.get('password')?.errors != null &&
+                          regsiterForm.get('password')?.touched
+                        "
+                        class="alert-danger my-2 mx-3"
+                      >
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('password')?.errors?.['required']"
+                        >
+                          password is required
+                        </p>
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('password')?.errors?.['minLength']"
+                        >
+                          The minimum number of digits in the password is 8
+                          digits
+                        </p>
+                        <p
+                          class="error"
+                          *ngIf="regsiterForm.get('password')?.errors?.['maxLength']"
+                        >
+                          The maximum number of digits in the password is 25
+                          digits
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mt-3">
+                    <button
+                      type="submit"
+                      [disabled]="regsiterForm.invalid"
+                      class="btn btn-primary btn-lg w-100"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="col-md-10 col-lg-6 col-xl-7 text-center order-1 order-lg-2"
+              >
+                <img
+                  src="../../../../assets/Mobile login-pana.png"
+                  class="w-50"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

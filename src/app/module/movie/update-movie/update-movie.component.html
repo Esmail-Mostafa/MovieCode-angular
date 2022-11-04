@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 card bg-white m-auto mt-4">
+      <div class="text-center">
+        <img
+          class="w-50"
+          src="https://test-api.storexweb.com/{{ show?.image }}"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <div *ngIf="errors" class="alert alert-danger">
+        {{ errors }}
+      </div>
+      <form [formGroup]="updateData" (ngSubmit)="PatchData()">
+        <label class="form-label" for="">name</label>
+        <input
+          class="form-control"
+          formControlName="name"
+          type="text"
+          value="{{ show?.name }}"
+        />
+
+        <label for="">description</label>
+        <input
+          class="form-control"
+          formControlName="description"
+          type="text"
+          value="{{ show?.description }}"
+        />
+
+        <label for="">image</label>
+        <input
+          class="form-control"
+          (change)="getImage($event)"
+          type="file"
+         
+        />
+
+        <input type="text" disabled value="{{show?.category?.['name']}}" />
+
+        <select formControlName="category_id" class="form-select">
+          <option *ngFor="let cat of moviecat" [value]="cat.id">
+            {{ cat.name }}
+          </option>
+        </select>
+
+        <button
+          class="btn btn-success w-25 my-2"
+          [disabled]="updateData.invalid"
+          type="submit"
+        >
+          Edit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
